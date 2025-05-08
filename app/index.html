@@ -30,12 +30,40 @@
         animation: octocat-wave 560ms ease-in-out
       }
     }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #firfe-add {
+      user-select: none;
+      color: rgb(126, 126, 126);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #firfe-add a {
+      text-decoration: none;
+      color: rgb(126, 126, 126);
+      padding-left: 8px;
+    }
+    #firfe-add p{
+      margin: 0;
+      padding: 0;
+    }
   </style>
 </head>
 
 <body>
   <div id="container"></div>
-  <a href="https://github.com/shinima/battle-city" class="github-corner" aria-label="View source on Github">
+  <!-- <a href="https://github.com/shinima/battle-city" class="github-corner" aria-label="View source on Github">
     <svg width="80"
          height="80"
          viewBox="0 0 250 250"
@@ -50,7 +78,17 @@
             fill="currentColor"
             class="octo-body"></path>
     </svg>
-  </a>
+  </a> -->
+  <div id="firfe-add">
+    <p>
+      <a href="https://github.com/feichao93/battle-city" target="_blank">原项目仓库</a>
+      <a href="https://github.com/Firfr/battle-city" target="_blank">镜像制作仓库</a>
+    </p>
+    <p>鼠标点击选择关卡或 W S 选择 J 确认 R 重新开始</p>
+    <p>WASD 控制坦克运动 J 发射子弹</p>
+    <p>双人 第二个 方向键控制运动 ? 发射子弹</p>
+    <p>快捷键 Ctrl + 或 Ctrl - 缩放画面大小</p>
+  </div>
 </body>
 
 </html>
