@@ -10,7 +10,73 @@
 
 如果游戏过程中发现任何 BUG 的话，欢迎提 [issue](https://github.com/shinima/battle-city/issues/new)。
 
-### 开发进度：
+## 部署说明
+
+首先感谢原作者的开源。[原项目地址](https://github.com/feichao93/battle-city)
+
+有需要帮忙部署这个项目的朋友,一杯奶茶,即可程远程帮你部署，需要可联系。  
+微信号 `E-0_0-`  
+闲鱼搜索用户 `明月人间`  
+或者邮箱 `firfe163@163.com`  
+如果这个项目有帮到你。欢迎start。
+
+有其他的项目的汉化需求，欢迎提issue。或其他方式联系通知。
+
+### 镜像
+
+从阿里云或华为云镜像仓库拉取镜像，注意填写镜像标签，镜像仓库中没有`latest`标签
+
+容器内部端口 3000
+
+```bash
+swr.cn-north-4.myhuaweicloud.com/firfe/battle-city:2025.05.08
+```
+
+### docker run 命令部署
+
+```bash
+docker run -d \
+--name battle-city \
+--network bridge \
+--restart always \
+--log-opt max-size=1m \
+--log-opt max-file=3 \
+-p 3000:3000 \
+swr.cn-north-4.myhuaweicloud.com/firfe/battle-city:2025.05.08
+```
+### compose 文件部署 👍推荐
+
+```yaml
+#version: '3.9'
+services:
+  battle-city:
+    container_name: battle-city
+    image: swr.cn-north-4.myhuaweicloud.com/firfe/battle-city:2025.05.08
+    network_mode: bridge
+    restart: always
+    logging:
+      options:
+        max-size: 1m
+        max-file: '3'
+    ports:
+      - 3000:3000
+```
+
+## 修改说明
+ 
+增加修改部分具体见 [修改说明](./修改说明.md)。
+
+`./README.md` 增加 `## 部署说明`、`## 修改说明`、`## 效果截图` 部分。
+
+增加目录 `./图片`
+新增文件 `./.dockerignore`、`./Dockerfile`、`./修改说明.md`、`./本地调试命令记录.md` 
+
+## 效果截图
+
+<img src="图片/效果图.png" width="500" />
+
+
+## 开发进度：
 
 <details>
   <summary><b>Milestone 0.2（已完成于 2018-04-16)</b></summary>
@@ -37,7 +103,7 @@
 - [ ] 完整的设计、开发文档
 - [ ] 基于 websocket 的多人游戏模式
 
-### 本地开发
+## 本地开发
 
 1.  克隆该项目到本地
 2.  运行 `yarn install` 来安装依赖 （或者使用 `npm install`）
